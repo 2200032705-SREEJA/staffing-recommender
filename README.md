@@ -1,34 +1,34 @@
-# Staffing Recommender
+# 🛍️ Staffing Recommender
 
-> **Should you replace your resigning salesperson?**  
+> 👩‍💼 **Should you replace your resigning salesperson?**  
 > Upload your monthly sales CSV and get an instant, data-driven hire/don't-hire recommendation — with profit forecasts, team rankings, capacity analysis, and plain-English explanations.
 
-Built for branded retail stores. Designed to be reused every time someone resigns.
+🏬 Built for branded retail stores. Designed to be reused every time someone resigns.
 
 ---
 
-## Live demo
+## 🎮 Live demo
 
 Upload `RevI-Test.csv` (included) to try it instantly with 81 months of real store data.
 
 ---
 
-## Quickstart
+## 🚀 Quickstart
 
 ```bash
-# 1. Install dependencies
+# 1️⃣ Install dependencies
 pip install streamlit pandas numpy statsmodels matplotlib reportlab
 
-# 2. Run the web app
+# 2️⃣ Run the web app
 streamlit run streamlit_app.py
 
-# 3. Open in browser
+# 3️⃣ Open in browser
 # http://localhost:8501
 ```
 
 ---
 
-## Three ways to use this
+## 🗂️ Three ways to use this
 
 | Mode | File | Best for |
 |------|------|----------|
@@ -38,23 +38,23 @@ streamlit run streamlit_app.py
 
 ---
 
-## Web app features
+## ✨ Web app features
 
 Upload your CSV, pick who is resigning, and instantly get:
 
-- **Verdict banner** — YES or NO in plain English with expected profit figure
-- **4 KPI cards** — skill rank, monthly impact, profit gain, model accuracy (each explained in plain English)
-- **Profit Forecast tab** — month-by-month profit: hire vs. leave empty
-- **Hire Quality tab** — what if your next hire is great, average, or terrible?
-- **Team Rankings tab** — skill ranking of all staff + distribution histogram showing where the leaving person sits
-- **Seasonal Patterns tab** — your store's busy/slow cycle + full sales history
-- **Overlap & Ceiling tab** — does your 1-month overlap pattern actually grow sales?
-- **Tips & Rules tab** — 5 data-backed rules for smarter staffing
-- **Assumptions tab** — every assumption the model makes, listed clearly
+- 🟢 **Verdict banner** — YES or NO in plain English with expected profit figure
+- 📊 **4 KPI cards** — skill rank, monthly impact, profit gain, model accuracy (each explained in plain English)
+- 📈 **Profit Forecast tab** — month-by-month profit: hire vs. leave empty
+- 🎯 **Hire Quality tab** — what if your next hire is great, average, or terrible?
+- 🏆 **Team Rankings tab** — skill ranking of all staff + distribution histogram showing where the leaving person sits
+- 📅 **Seasonal Patterns tab** — your store's busy/slow cycle + full sales history
+- 🏪 **Overlap & Ceiling tab** — does your 1-month overlap pattern actually grow sales?
+- 💡 **Tips & Rules tab** — 5 data-backed rules for smarter staffing
+- 📌 **Assumptions tab** — every assumption the model makes, listed clearly
 
 ---
 
-## CLI usage
+## 💻 CLI usage
 
 ```bash
 python staffing_recommender.py RevI-Test.csv --leaving sp12
@@ -74,7 +74,7 @@ Options:
 
 ---
 
-## PDF report
+## 📄 PDF report
 
 ```bash
 python generate_pdf_report.py RevI-Test.csv --leaving sp12 --out staffing_report.pdf
@@ -84,7 +84,7 @@ Produces a multi-page A4 PDF with all charts, tables, and the full recommendatio
 
 ---
 
-## CSV format
+## 📊 CSV format
 
 ```
 Month, Sales, sale sp1, sale sp2, sale sp3, ...
@@ -102,23 +102,23 @@ Each person's employed months should be one contiguous block. All values in the 
 
 ---
 
-## How it works
+## 🧠 How it works
 
-1. **Ramp-up curve** — fits a log+linear tenure model. New hires start slow and improve over ~12 months. Universal across all staff.
+1. 📉 **Ramp-up curve** — fits a log+linear tenure model. New hires start slow and improve over ~12 months. Universal across all staff.
 
-2. **Seasonality detection** — auto-detects a repeating cycle (12 months in this dataset). All skill comparisons are seasonality-adjusted so slow-season hires aren't unfairly penalised.
+2. 🌊 **Seasonality detection** — auto-detects a repeating cycle (12 months in this dataset). All skill comparisons are seasonality-adjusted so slow-season hires aren't unfairly penalised.
 
-3. **Skill ranking** — estimates each person's true monthly sales contribution vs. a baseline hire, after removing ramp-up and seasonal noise. Model R² = 0.92 on this dataset.
+3. 🏅 **Skill ranking** — estimates each person's true monthly sales contribution vs. a baseline hire, after removing ramp-up and seasonal noise. Model R² = 0.92 on this dataset.
 
-4. **Capacity ceiling test** — checks whether 8-person months (during overlap) generate proportionally higher total sales, or whether staff split the same customer footfall.
+4. 🏪 **Capacity ceiling test** — checks whether 8-person months (during overlap) generate proportionally higher total sales, or whether staff split the same customer footfall.
 
-5. **Margin projection** — projects gross margin under Replace vs. Don't Replace for 8 hire-quality scenarios drawn from the historical skill distribution.
+5. 💰 **Margin projection** — projects gross margin under Replace vs. Don't Replace for 8 hire-quality scenarios drawn from the historical skill distribution.
 
-6. **Recommendation** — replace if the expected gain under an average-quality hire is positive. Includes break-even analysis and full sensitivity table.
+6. ✅ **Recommendation** — replace if the expected gain under an average-quality hire is positive. Includes break-even analysis and full sensitivity table.
 
 ---
 
-## Files
+## 📁 Files
 
 | File | Purpose |
 |------|---------|
@@ -130,7 +130,7 @@ Each person's employed months should be one contiguous block. All values in the 
 
 ---
 
-## Assumptions
+## 📌 Assumptions
 
 - Gross margin = 50% × Sales − salary × headcount − 5% × Sales (adjustable)
 - New hires follow a log-curve ramp-up based on historical patterns in your data
@@ -143,7 +143,7 @@ Full assumption details are in the **Assumptions tab** of the web app.
 
 ---
 
-## Requirements
+## 📦 Requirements
 
 ```
 streamlit
